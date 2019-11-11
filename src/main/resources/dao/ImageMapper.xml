@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.ImageMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.entity.Image">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="desc" property="desc" jdbcType="VARCHAR"/>
+        <result column="src" property="src" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        title,
+        `desc`,
+        src
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="image.id">
+        INSERT INTO t_image (
+            id,
+            title,
+            `desc`,
+            src
+        ) VALUES (
+            #{image.id,jdbcType=INTEGER},
+            #{image.title,jdbcType=VARCHAR},
+            #{image.desc,jdbcType=VARCHAR},
+            #{image.src,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="image.id">
+        INSERT INTO t_image
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="image.id!=null"> id,</if>
+            <if test="image.title!=null"> title,</if>
+            <if test="image.desc!=null"> `desc`,</if>
+            <if test="image.src!=null"> src,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="image.id!=null">#{image.id,jdbcType=INTEGER},
+            </if>
+            <if test="image.title!=null">#{image.title,jdbcType=VARCHAR},
+            </if>
+            <if test="image.desc!=null">#{image.desc,jdbcType=VARCHAR},
+            </if>
+            <if test="image.src!=null">#{image.src,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO t_image (
+            id,
+            title,
+            `desc`,
+            src
+        )VALUES
+        <foreach collection="images" item="image" index="index" separator=",">
+            (
+            #{image.id,jdbcType=INTEGER},
+            #{image.title,jdbcType=VARCHAR},
+            #{image.desc,jdbcType=VARCHAR},
+            #{image.src,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE t_image
+        <set>
+            <if test="image.title != null"> title= #{image.title,jdbcType=VARCHAR},</if>
+            <if test="image.desc != null"> `desc`= #{image.desc,jdbcType=VARCHAR},</if>
+            <if test="image.src != null"> src= #{image.src,jdbcType=VARCHAR}</if>
+        </set>
+        WHERE id = #{image.id,jdbcType=INTEGER}
+    </update>
+    <select id="getImages" resultMap="BaseResultMap">
+          select * from t_show
+    </select>
+</mapper>
+

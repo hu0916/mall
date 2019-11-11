@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: dev #默认为开发环境
+  mvc:
+    servlet:
+      load-on-startup: 1
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+#    - classpath*:com/**/mapper/*.xml
+#logging:
+#  level:
+#    root: info #日志配置DEBUG,INFO,WARN,ERROR
+server:
+  port: 8888
+##    com.macro.mall: debug
