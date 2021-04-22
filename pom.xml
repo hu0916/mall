@@ -16,7 +16,7 @@
     </parent>
 
     <properties>
-        <mybatis.version>3.5.0</mybatis.version>
+        <mybatis.version>3.5.6</mybatis.version>
     </properties>
 
     <!-- Add typical dependencies for a web application -->
